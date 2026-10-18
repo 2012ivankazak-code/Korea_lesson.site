@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корейский язык с Дарьей — Обучение и Репетиторство</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --burgundy-dark: #3B0B14;
+      --burgundy: #5E1320;
+      --burgundy-light: #7A1C2C;
+      --pink-soft: #FDF4F6;
+      --pink-tag: #F2D3DA;
+      --pink-accent: #E6C2CA;
+      --gray-bg: #F8F8FA;
+      --gray-border: #E8E8EC;
+      --text-dark: #1D1D1F;
+      --text-muted: #6E6E73;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ЛЕПЕСТКИ САКУРЫ НА ФОНЕ */
+    .sakura-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      background-color: #FFC0CB;
+      border-radius: 150% 0 150% 0;
+      opacity: 0.6;
+      animation: fall 11s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { top: -10%; transform: translateX(0) rotate(0deg); }
+      100% { top: 110%; transform: translateX(120px) rotate(360deg); }
+    }
+
+    /* СТРОГО ЦЕНТРИРОВАННЫЙ САЙТ */
+    .site-wrapper {
+      width: 100%;
+      max-width: 1100px;
+      background-color: var(--white);
+      min-height: 100vh;
+      box-shadow: 0 0 50px rgba(0,0,0,0.5);
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .asian-watermark {
+      position: absolute;
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(80px, 12vw, 160px);
+      color: rgba(94, 19, 32, 0.035);
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      line-height: 1;
+    }
+
+    /* БЛОК 1: ГЛАВНАЯ */
+    .hero-section {
+      background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 100%);
+      color: var(--white);
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-photo-box {
+      width: 100%;
+      max-width: 340px;
+      height: 420px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--pink-accent);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-photo-box:hover {
+      transform: scale(1.02);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    .hero-text-content {
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--pink-tag);
+      background: rgba(255,255,255,0.1);
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 15px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 50px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--pink-soft);
+      margin-bottom: 25px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* КНОПКИ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn-white {
+      background-color: var(--white);
+      color: var(--burgundy-dark);
+    }
+
+    .btn-white:hover {
+      background-color: var(--pink-soft);
+      transform: translateY(-2px);
+    }
+
+    .btn-burgundy {
+      background-color: var(--burgundy);
+      color: var(--white);
+    }
+
+    .btn-burgundy:hover {
+      background-color: var(--burgundy-light);
+      transform: translateY(-2px);
+    }
+
+    /* ОБЩИЕ СЕКЦИИ */
+    .section-padding {
+      padding: 70px 40px;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--burgundy-dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-header p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* АНИМАЦИЯ ПОЯВЛЕНИЯ */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* СЕТКИ И КАРТОЧКИ */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .interactive-card {
+      background-color: var(--gray-bg);
+      padding: 25px;
+      border-radius: 14px;
+      border: 1px solid var(--gray-border);
+      border-left: 4px solid var(--burgundy);
+      transition: all 0.3s ease;
+    }
+
+    .interactive-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(94, 19, 32, 0.1);
+      border-color: var(--pink-accent);
+      border-left-color: var(--burgundy-light);
+    }
+
+    .interactive-card.dark {
+      background-color: var(--burgundy);
+      color: var(--white);
+      border-left-color: var(--pink-tag);
+    }
+
+    .interactive-card.dark:hover {
+      background-color: var(--burgundy-light);
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background-color: var(--pink-tag);
+      color: var(--burgundy-dark);
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: #555555;
+      line-height: 1.6;
+    }
+
+    .interactive-card.dark .card-desc {
+      color: var(--pink-soft);
+    }
+
+    /* БЛОК 3: ЧТО ВЫ ПОЛУЧИТЕ */
+    .feature-box {
+      background-color: var(--white);
+      border: 1px solid var(--gray-border);
+      padding: 25px;
+      border-radius: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      border-color: var(--burgundy);
+    }
+
+    .feature-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--burgundy);
+      margin-bottom: 6px;
+    }
+
+    .feature-text {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* БЛОК 4: ПОЧЕМУ ВЫБИРАЮТ МЕНЯ */
+    .stat-card {
+      background-color: var(--burgundy-dark);
+      color: var(--white);
+      padding: 25px;
+      border-radius: 14px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--pink-tag);
+    }
+
+    /* БЛОК 5: ОТЗЫВЫ */
+    .review-card {
+      background-color: var(--pink-soft);
+      border: 1px solid var(--pink-tag);
+      padding: 25px;
+      border-radius: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(94, 19, 32, 0.08);
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .review-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--burgundy-dark);
+    }
+
+    .review-stars {
+      color: #D4A373;
+    }
+
+    .review-content {
+      font-size: 13px;
+      color: #444444;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* БЛОК 6: ПРАЙС */
+    .price-card {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 14px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .price-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border-color: var(--burgundy);
+    }
+
+    .price-card.featured {
+      background-color: var(--burgundy);
+      color: var(--white);
+      border-color: var(--burgundy);
+    }
+
+    .price-card.featured:hover {
+      background-color: var(--burgundy-light);
+    }
+
+    .price-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .price-title {
+      font-size: 18px;
+      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .price-amount {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--burgundy);
+      white-space: nowrap;
+    }
+
+    .price-card.featured .price-amount {
+      color: var(--pink-tag);
+    }
+
+    /* БЛОК 7: КОНТАКТЫ */
+    .contacts-footer {
+      background-color: var(--burgundy-dark);
+      color: var(--white);
+      padding: 70px 40px;
+      text-align: center;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+      background-color: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background-color: var(--burgundy-light);
+      transform: translateY(-2px);
+    }
+
+    /* МОДАЛЬНОЕ ОКНО */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.75);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background-color: var(--white);
+      padding: 35px 25px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+
+    .modal-backdrop.active .modal-card {
+      transform: translateY(0);
+    }
+
+    /* КОМПЬЮТЕРЫ И ПЛАНШЕТЫ (Двухколоночный Hero и Сетки) */
+    @media (min-width: 768px) {
+      .hero-container {
+        flex-direction: row;
+        text-align: left;
+        gap: 50px;
+      }
+
+      .hero-text-content {
+        text-align: left;
+      }
+
+      .hero-subtitle {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Сакура фон -->
+  <div class="sakura-container" id="sakura"></div>
+
+  <div class="site-wrapper">
+
+    <!-- 1. ГЛАВНАЯ -->
+    <section class="hero-section">
+      <div class="asian-watermark" style="top:-20px; right:-20px;">한국어</div>
+      
+      <div class="hero-container">
+        <div class="hero-photo-box">
+          <img src="20260821_110017.jpg" alt="Дарья Калмыкова" class="hero-photo" onerror="this.src='https://via.placeholder.com/400x500/3B0B14/FFFFFF?text=Дарья+Калмыкова'">
+        </div>
+
+        <div class="hero-text-content">
+          <span class="hero-tag">Преподаватель корейского языка</span>
+          <h1 class="hero-title">Дарья Калмыкова</h1>
+          <p class="hero-subtitle">Индивидуальные и групповые занятия в легком, системном и увлеченном формате 🌸</p>
+          <button class="btn btn-white" onclick="openModal()">Записаться на занятие</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. КОМУ ПОДОЙДУТ ЗАНЯТИЯ -->
+    <section class="section-padding fade-in-section">
+      <div class="asian-watermark" style="top:20px; left:-30px;">배우다</div>
+      <div class="section-header">
+        <h2>Кому подойдут занятия?</h2>
+        <p>Гибкая программа обучения под ваши цели</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="interactive-card">
+          <span class="card-tag">С нуля</span>
+          <div class="card-title">Новичкам</div>
+          <div class="card-desc">Поставим правильное произношение, выучим алфавит Хангыль и уверенно заговорим базовыми фразами.</div>
+        </div>
+
+        <div class="interactive-card dark">
+          <span class="card-tag">Погружение</span>
+          <div class="card-title">Любителям K-Pop & Дорам</div>
+          <div class="card-desc">Разбор сленга, песен и реплик из сериалов. Поймете живой корейский язык и культурные тонкости.</div>
+        </div>
+
+        <div class="interactive-card">
+          <span class="card-tag">Экзамен</span>
+          <div class="card-title">Подготовка к TOPIK I</div>
+          <div class="card-desc">Систематизируем грамматику, наберем словарный запас и разберем все типовые задания.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ЧТО ВЫ ПОЛУЧИТЕ -->
+    <section class="section-padding fade-in-section" style="background-color: var(--pink-soft);">
+      <div class="section-header">
+        <h2>Что вы получите от занятий?</h2>
+        <p>Забота о вашем комфорте и продуктивности</p>
+      </div>
+
+      <div class="grid-4">
+        <div class="feature-box">
+          <div class="feature-num">01</div>
+          <div class="feature-text">Спокойная и дружелюбная атмосфера без стресса</div>
+        </div>
+        <div class="feature-box">
+          <div class="feature-num">02</div>
+          <div class="feature-text">Удобная интерактивная онлайн-платформа</div>
+        </div>
+        <div class="feature-box">
+          <div class="feature-num">03</div>
+          <div class="feature-text">Поддержка преподавателя в переписке 24/7</div>
+        </div>
+        <div class="feature-box">
+          <div class="feature-num">04</div>
+          <div class="feature-text">Разговорная практика с самого первого урока</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 35px;">
+        <button class="btn btn-burgundy" onclick="openModal()">Отправить заявку</button>
+      </div>
+    </section>
+
+    <!-- 4. ПОЧЕМУ ВЫБИРАЮТ МЕНЯ -->
+    <section class="section-padding fade-in-section">
+      <div class="section-header">
+        <h2>Почему выбирают меня?</h2>
+        <p>Структурированная подача и гибкий подход</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 20px;">
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Понятно</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">24/7</div>
+          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">На связи</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="interactive-card">
+          <div class="card-title">Гибкий график</div>
+          <div class="card-desc">Подберем удобные окошки, чтобы учеба гармонично вписывалась в ваш ритм жизни.</div>
+        </div>
+        <div class="interactive-card">
+          <div class="card-title">Мягкий и динамичный подход</div>
+          <div class="card-desc">Занятия проходят легко и увлекательно — даже сложная грамматика становится понятной без зубрежки.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. ОТЗЫВЫ -->
+    <section class="section-padding fade-in-section" style="background-color: var(--gray-bg);">
+      <div class="section-header">
+        <h2>Отзывы учеников</h2>
+        <p>Честные впечатления моих студентов</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-name">Вика</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-content">«Спасибо большое еще раз!! Мне очень все понравилось! Мне очень нравится как вы объясняете, в таком спокойном и даже немного шуточном формате!»</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-name">Арина Кутузова</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-content">«Каждое занятие супер крутое, интересное и веселое! Уроки настолько крутые, что вообще не хочется останавливаться, а только больше заниматься!»</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-name">Мария Миягашева</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-content">«Дарья развеяла волнение с первых минут своей добротой. А ТГ-канал со всякими корейскими штучками — вообще вау!»</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-name">Жанна</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-content">«Именно пробный урок помог мне наконец то выбрать себе наставника и погрузиться в корейский!»</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ПРАЙС -->
+    <section class="section-padding fade-in-section">
+      <div class="section-header">
+        <h2>Прайс обучения</h2>
+        <p>Разовые занятия и выгодные абонементы</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="price-card">
+          <div class="price-header-flex">
+            <div class="price-title">Индивидуальное занятие</div>
+            <div class="price-amount">2 000 ₽</div>
+          </div>
+          <div style="font-size: 12px; color: #777;">Длительность: 55 минут</div>
+        </div>
+
+        <div class="price-card">
+          <div class="price-header-flex">
+            <div class="price-title">Групповое (до 6 чел)</div>
+            <div class="price-amount">700 ₽</div>
+          </div>
+          <div style="font-size: 12px; color: #777;">Длительность: 55 минут</div>
+        </div>
+
+        <div class="price-card featured">
+          <div class="price-header-flex">
+            <div class="price-title">Абонемент Индивидуальный (4 урока)</div>
+            <div class="price-amount">7 300 ₽</div>
+          </div>
+          <div style="font-size: 12px; opacity: 0.85;">Выгода при регулярном обучении</div>
+        </div>
+
+        <div class="price-card featured">
+          <div class="price-header-flex">
+            <div class="price-title">Абонемент Индивидуальный (8 уроков)</div>
+            <div class="price-amount">15 000 ₽</div>
+          </div>
+          <div style="font-size: 12px; opacity: 0.85;">Максимальный результат и системность</div>
+        </div>
+
+        <div class="price-card">
+          <div class="price-header-flex">
+            <div class="price-title">Абонемент Групповой (8 уроков)</div>
+            <div class="price-amount">5 200 ₽</div>
+          </div>
+          <div style="font-size: 12px; color: #777;">Занятия в мини-группе</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 35px;">
+        <button class="btn btn-burgundy" onclick="openModal()">Записаться / Выбрать тариф</button>
+      </div>
+    </section>
+
+    <!-- 7. КОНТАКТЫ -->
+    <section class="contacts-footer">
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 34px; margin-bottom: 20px;">Контакты & Соцсети</h2>
+
+      <div style="background: rgba(255,255,255,0.08); padding: 20px; border-radius: 12px; max-width: 420px; margin: 0 auto 30px; border: 1px dashed var(--pink-tag);">
+        <p style="font-size: 13px; color: var(--pink-soft);">Прямой личный контакт в Telegram:</p>
+        <strong style="font-size: 18px; color: var(--white); display: block; margin-top: 5px;">@ddar_design</strong>
+      </div>
+
+      <div class="social-grid">
+        <a href="https://t.me/korean_with_ddarya" target="_blank" class="social-btn"> Telegram канал</a>
+        <a href="https://t.me/ddar_design" target="_blank" class="social-btn"> Написать в Telegram</a>
+        <a href="https://www.instagram.com/soft.korean_darya?vrfl=a3loOXkxeGozcG9n" target="_blank" class="social-btn"> Instagram</a>
+        <a href="https://vk.ru/club237294687" target="_blank" class="social-btn"> Группа ВКонтакте</a>
+        <a href="https://vk.ru/ddar_design" target="_blank" class="social-btn"> Написать ВКонтакте</a>
+        <a href="https://youtube.com/@ddar_design?si=_lRXyLhrLdrykPvh" target="_blank" class="social-btn"> YouTube канал</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal-card">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--burgundy-dark); margin-bottom: 10px;">Записаться на занятие</h3>
+      <p style="font-size: 13px; color: #666; margin-bottom: 25px;">Выберите удобный мессенджер для связи:</p>
+
+      <a href="https://t.me/ddar_design" target="_blank" class="btn btn-burgundy" style="width: 100%; margin-bottom: 12px;">Telegram</a>
+      <a href="https://vk.ru/ddar_design" target="_blank" class="btn" style="width: 100%; background-color: var(--gray-bg); color: #333;">ВКонтакте</a>
+
+      <button onclick="closeModal()" style="margin-top: 25px; background: none; border: none; color: #888; cursor: pointer; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Закрыть</button>
+    </div>
+  </div>
+
+  <script>
+    // Сакура лепестки
+    const sakuraContainer = document.getElementById('sakura');
+    for (let i = 0; i < 16; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + '%';
+      petal.style.width = (Math.random() * 8 + 8) + 'px';
+      petal.style.height = (Math.random() * 8 + 8) + 'px';
+      petal.style.animationDuration = (Math.random() * 6 + 7) + 's';
+      petal.style.animationDelay = (Math.random() * 5) + 's';
+      sakuraContainer.appendChild(petal);
+    }
+
+    // Появление при скролле
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Модальное окно
+    function openModal() {
+      document.getElementById('modal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
+    window.onclick = function(e) {
+      const modal = document.getElementById('modal');
+      if (e.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
