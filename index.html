@@ -35,9 +35,11 @@
       scroll-behavior: smooth;
     }
 
+    /* ЭСТЕТИЧНЫЙ МЯГКИЙ ФОН ПО БОКАМ ВМЕСТО ЧЕРНОГО */
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #1a1a1a;
+      background: linear-gradient(135deg, #1f0b11 0%, #3b141d 50%, #1a1a24 100%);
+      background-attachment: fixed;
       color: var(--text-dark);
       min-height: 100vh;
       display: flex;
@@ -49,7 +51,7 @@
       line-height: 1.6;
     }
 
-    /* АНИМАЦИЯ ПАДАЮЩИХ ЛЕПЕСТКОВ САКУРЫ НА ФОНЕ */
+    /* ЛЕПЕСТКИ САКУРЫ НА ФОНЕ */
     .sakura-container {
       position: fixed;
       top: 0;
@@ -127,6 +129,7 @@
       box-shadow: 0 15px 35px rgba(0,0,0,0.4);
       flex-shrink: 0;
       transition: transform 0.4s ease;
+      background-color: #4a101b;
     }
 
     .hero-photo-box:hover {
@@ -137,7 +140,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%; /* Кадрирование так, чтобы был виден человек */
+      object-position: center 20%;
     }
 
     .hero-text-content {
@@ -521,7 +524,52 @@
       transform: translateY(-2px);
     }
 
-    /* МОДАЛЬНОЕ ОКНО */
+    /* COOKIE ПЛАШКА */
+    .cookie-banner {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 500px;
+      background-color: var(--burgundy-dark);
+      color: var(--white);
+      padding: 16px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      border: 1px solid var(--pink-accent);
+      font-size: 12px;
+    }
+
+    .cookie-banner a {
+      color: var(--pink-tag);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .cookie-btn {
+      background-color: var(--white);
+      color: var(--burgundy-dark);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 12px;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .cookie-btn:hover {
+      background-color: var(--pink-soft);
+    }
+
+    /* МОДАЛЬНЫЕ ОКНА (Политика и Запись) */
     .modal-backdrop {
       display: none;
       position: fixed;
@@ -531,7 +579,7 @@
       height: 100%;
       background-color: rgba(0,0,0,0.75);
       backdrop-filter: blur(4px);
-      z-index: 1000;
+      z-index: 10000;
       justify-content: center;
       align-items: center;
       opacity: 0;
@@ -548,8 +596,10 @@
       padding: 35px 25px;
       border-radius: 20px;
       width: 90%;
-      max-width: 440px;
-      text-align: center;
+      max-width: 550px;
+      max-height: 85vh;
+      overflow-y: auto;
+      text-align: left;
       transform: translateY(20px);
       transition: transform 0.3s ease;
       box-shadow: 0 20px 50px rgba(0,0,0,0.4);
@@ -617,7 +667,8 @@
       
       <div class="hero-container">
         <div class="hero-photo-box">
-          <img src="20260821_110017.jpg" alt="Дарья Калмыкова" class="hero-photo" onerror="this.src='https://via.placeholder.com/400x500/3B0B14/FFFFFF?text=Дарья+Калмыкова'">
+          <!-- Работающее изображение с корректным фолбэком -->
+          <img src="20260821_110017.jpg" alt="Дарья Калмыкова" class="hero-photo" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';">
         </div>
 
         <div class="hero-text-content">
@@ -702,7 +753,6 @@
       </div>
 
       <div class="grid-2" style="margin-bottom: 20px;">
-        <!-- Карточка 100% понято заменена на Опыт работы и развитие -->
         <div class="stat-card">
           <div class="stat-title-custom">Опыт & Практическое развитие</div>
           <div class="stat-text-custom">Опыт работы переводчиком, педагогический стаж и постоянное развитие</div>
@@ -854,13 +904,26 @@
         <a href="https://vk.ru/ddar_design" target="_blank" class="social-btn">✉️ Написать ВКонтакте</a>
         <a href="https://youtube.com/@ddar_design?si=_lRXyLhrLdrykPvh" target="_blank" class="social-btn">▶️ YouTube канал</a>
       </div>
+
+      <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 12px; color: var(--pink-soft);">
+        <p>© 2026 Дарья Калмыкова. Все права защищены.</p>
+        <p style="margin-top: 8px;"><a onclick="openPrivacyModal()" style="color: var(--pink-tag); cursor: pointer; text-decoration: underline;">Политика конфиденциальности</a></p>
+      </div>
     </section>
 
   </div>
 
-  <!-- МОДАЛЬНОЕ ОКНО -->
+  <!-- COOKIE ПЛАШКА -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div>
+      Мы используем файлы cookie для улучшения работы сайта. Продолжая работу, вы соглашаетесь с <a onclick="openPrivacyModal()">Политикой конфиденциальности</a>.
+    </div>
+    <button class="cookie-btn" onclick="acceptCookies()">Принять</button>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО ЗАПИСИ -->
   <div class="modal-backdrop" id="modal">
-    <div class="modal-card">
+    <div class="modal-card" style="text-align: center;">
       <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--burgundy-dark); margin-bottom: 10px;">Записаться на занятие</h3>
       <p style="font-size: 13px; color: #666; margin-bottom: 25px;">Выберите удобный мессенджер для связи:</p>
 
@@ -870,6 +933,22 @@
       </div>
 
       <button onclick="closeModal()" style="margin-top: 25px; background: none; border: none; color: #888; cursor: pointer; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Закрыть</button>
+    </div>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ -->
+  <div class="modal-backdrop" id="privacyModal">
+    <div class="modal-card">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--burgundy-dark); margin-bottom: 15px; text-align: center;">Политика конфиденциальности</h3>
+      <div style="font-size: 12px; color: #444; line-height: 1.6; display: flex; flex-direction: column; gap: 10px;">
+        <p><strong>1. Общие положения</strong><br>Настоящая политика обработки персональных данных составлена в соответствии с требованиями законодательства и определяет порядок обработки персональных данных и меры по обеспечению их безопасности, предпринимаемые Дарьей Калмыковой (далее — Оператор).</p>
+        <p><strong>2. Сбор данных</strong><br>Оператор обрабатывает персональные данные Пользователя только в случае их заполнения и/или отправки Пользователем самостоятельно через формы обратной связи, мессенджеры Telegram и ВКонтакте.</p>
+        <p><strong>3. Файлы Cookie</strong><br>Данный сайт использует файлы cookie для улучшения работы, аналитики и удобства пользователей. Вы можете отключить сохранение cookie в настройках браузера.</p>
+        <p><strong>4. Контакты Оператора</strong><br>По всем вопросам вы можете связаться с Оператором напрямую через Telegram: @ddar_design.</p>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="btn btn-burgundy" onclick="closePrivacyModal()">Понятно</button>
+      </div>
     </div>
   </div>
 
@@ -901,18 +980,34 @@
       observer.observe(section);
     });
 
-    // Модальное окно
+    // Модальное окно записи
     function openModal() {
       document.getElementById('modal').classList.add('active');
     }
     function closeModal() {
       document.getElementById('modal').classList.remove('active');
     }
+
+    // Модальное окно политики
+    function openPrivacyModal() {
+      document.getElementById('privacyModal').classList.add('active');
+    }
+    function closePrivacyModal() {
+      document.getElementById('privacyModal').classList.remove('active');
+    }
+
+    // Cookie баннер
+    if (localStorage.getItem('cookiesAccepted') === 'true') {
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+
     window.onclick = function(e) {
-      const modal = document.getElementById('modal');
-      if (e.target === modal) {
-        closeModal();
-      }
+      if (e.target === document.getElementById('modal')) closeModal();
+      if (e.target === document.getElementById('privacyModal')) closePrivacyModal();
     }
   </script>
 </body>
