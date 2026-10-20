@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Корейский язык с Дарьей — Обучение и Репетиторство</title>
+  <title>Корейский язык с Дарьей — Преподаватель и Репетитор</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Cormorant Garamond, Montserrat, Noto Serif KR -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;600&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
       line-height: 1.6;
     }
 
-    /* ЛЕПЕСТКИ САКУРЫ НА ФОНЕ */
+    /* АНИМАЦИЯ ПАДАЮЩИХ ЛЕПЕСТКОВ САКУРЫ НА ФОНЕ */
     .sakura-container {
       position: fixed;
       top: 0;
@@ -74,7 +74,7 @@
       100% { top: 110%; transform: translateX(120px) rotate(360deg); }
     }
 
-    /* ЦЕНТРИРОВАННЫЙ САЙТ */
+    /* ЦЕНТРИРОВАННЫЙ АДАПТИВНЫЙ КОНТЕЙНЕР */
     .site-wrapper {
       width: 100%;
       max-width: 1100px;
@@ -85,6 +85,7 @@
       margin: 0 auto;
     }
 
+    /* АЗИАТСКИЙ ДЕКОР И ИЕРОГЛИФЫ */
     .asian-watermark {
       position: absolute;
       font-family: 'Noto Serif KR', serif;
@@ -96,7 +97,7 @@
       line-height: 1;
     }
 
-    /* БЛОК 1: ГЛАВНАЯ */
+    /* 1. БЛОК: ГЛАВНАЯ */
     .hero-section {
       background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 100%);
       color: var(--white);
@@ -136,7 +137,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center 20%; /* Кадрирование так, чтобы был виден человек */
     }
 
     .hero-text-content {
@@ -173,7 +174,15 @@
       margin-right: auto;
     }
 
-    /* КНОПКИ */
+    /* КНОПКИ В ОДНОЙ СТРОКЕ */
+    .btn-group-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -212,15 +221,7 @@
       transform: translateY(-2px);
     }
 
-    .btn-group-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 15px;
-    }
-
-    /* ОБЩИЕ СЕКЦИИ */
+    /* СЕКЦИИ И ИНТЕРАКТИВНОСТЬ */
     .section-padding {
       padding: 70px 40px;
       position: relative;
@@ -246,7 +247,7 @@
       margin-top: 6px;
     }
 
-    /* АНИМАЦИЯ ПОЯВЛЕНИЯ */
+    /* ПЛАВНОЕ ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ */
     .fade-in-section {
       opacity: 0;
       transform: translateY(25px);
@@ -258,25 +259,7 @@
       transform: translateY(0);
     }
 
-    /* СЕТКИ И КАРТОЧКИ */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 15px;
-    }
-
+    /* АНИМАЦИИ ПРИ НАВЕДЕНИИ МЫШКИ (Hover Animations) */
     .interactive-card {
       background-color: var(--gray-bg);
       padding: 25px;
@@ -331,7 +314,26 @@
       color: var(--pink-soft);
     }
 
-    /* БЛОК 3: ЧТО ВЫ ПОЛУЧИТЕ */
+    /* АДАПТИВНЫЕ СЕТКИ */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    /* 3. БЛОК: ЧТО ВЫ ПОЛУЧИТЕ */
     .feature-box {
       background-color: var(--white);
       border: 1px solid var(--gray-border);
@@ -359,7 +361,7 @@
       font-weight: 500;
     }
 
-    /* БЛОК 4: ПОЧЕМУ ВЫБИРАЮТ МЕНЯ */
+    /* 4. БЛОК: ПОЧЕМУ ВЫБИРАЮТ МЕНЯ */
     .stat-card {
       background-color: var(--burgundy-dark);
       color: var(--white);
@@ -377,22 +379,22 @@
       transform: translateY(-4px);
     }
 
-    .stat-number {
+    .stat-title-custom {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
+      font-size: 22px;
       font-weight: 700;
       color: var(--pink-tag);
+      margin-bottom: 6px;
       line-height: 1.2;
     }
 
-    .stat-text {
+    .stat-text-custom {
       font-size: 13px;
       color: var(--pink-soft);
-      margin-top: 6px;
       line-height: 1.4;
     }
 
-    /* БЛОК 5: ОТЗЫВЫ */
+    /* 5. БЛОК: ОТЗЫВЫ */
     .review-card {
       background-color: var(--pink-soft);
       border: 1px solid var(--pink-tag);
@@ -430,7 +432,7 @@
       line-height: 1.6;
     }
 
-    /* БЛОК 6: ПРАЙС */
+    /* 6. БЛОК: ПРАЙС */
     .price-card {
       background: var(--white);
       border: 1px solid var(--gray-border);
@@ -482,7 +484,7 @@
       color: var(--pink-tag);
     }
 
-    /* БЛОК 7: КОНТАКТЫ */
+    /* 7. БЛОК: КОНТАКТЫ И СОЦСЕТИ */
     .contacts-footer {
       background-color: var(--burgundy-dark);
       color: var(--white);
@@ -557,7 +559,7 @@
       transform: translateY(0);
     }
 
-    /* АДАПТАЦИЯ ДЛЯ КОМПЬЮТЕРОВ И ПЛАНШЕТОВ */
+    /* ДЕСКТОПНАЯ ВЕРСТКА ДЛЯ КОМПЬЮТЕРОВ И ПЛАНШЕТОВ */
     @media (min-width: 768px) {
       .hero-container {
         flex-direction: row;
@@ -604,7 +606,7 @@
 </head>
 <body>
 
-  <!-- Сакура фон -->
+  <!-- Анимированные лепестки сакуры -->
   <div class="sakura-container" id="sakura"></div>
 
   <div class="site-wrapper">
@@ -623,7 +625,7 @@
           <h1 class="hero-title">Дарья Калмыкова</h1>
           <p class="hero-subtitle">Индивидуальные и групповые занятия в легком, системном и увлеченном формате 🌸</p>
           
-          <!-- Кнопки Telegram и ВКонтакте в одной строке -->
+          <!-- Перенесенные кнопки в одну строку наверх -->
           <div class="btn-group-row">
             <a href="https://t.me/ddar_design" target="_blank" class="btn btn-white">Написать в Telegram</a>
             <a href="https://vk.ru/ddar_design" target="_blank" class="btn btn-white">Написать ВКонтакте</a>
@@ -647,12 +649,14 @@
           <div class="card-desc">Поставим правильное произношение, выучим алфавит Хангыль и уверенно заговорим базовыми фразами.</div>
         </div>
 
+        <!-- Переименованный пункт по ТЗ -->
         <div class="interactive-card dark">
           <span class="card-tag">Погружение</span>
           <div class="card-title">Язык для жизни</div>
           <div class="card-desc">Подойдёт и любителям к-поп и дорам... Разбор сленга, песен и реплик из сериалов. Поймете живой корейский язык и тонкости культуры.</div>
         </div>
 
+        <!-- Добавлены Топик 1, 2 -->
         <div class="interactive-card">
           <span class="card-tag">Экзамен</span>
           <div class="card-title">Подготовка к TOPIK I, II</div>
@@ -673,6 +677,7 @@
           <div class="feature-num">01</div>
           <div class="feature-text">Спокойная и дружелюбная атмосфера без стресса</div>
         </div>
+        <!-- Обновленная формула для 02 пункта -->
         <div class="feature-box">
           <div class="feature-num">02</div>
           <div class="feature-text">Современные и авторитетные учебные материалы</div>
@@ -700,13 +705,14 @@
       </div>
 
       <div class="grid-2" style="margin-bottom: 20px;">
+        <!-- Заменена карточка "100% понято" на Опыт и стаж -->
         <div class="stat-card">
-          <div class="stat-number">Опыт & Стаж</div>
-          <div class="stat-text">Опыт работы переводчиком, педагогический стаж и постоянное развитие</div>
+          <div class="stat-title-custom">Опыт & Пактическое развитие</div>
+          <div class="stat-text-custom">Опыт работы переводчиком, педагогический стаж и постоянное развитие</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">24/7</div>
-          <div class="stat-text" style="text-transform: uppercase; letter-spacing: 1px;">На связи между уроками</div>
+          <div class="stat-title-custom">24/7 Поддержка</div>
+          <div class="stat-text-custom">Всегда на связи в переписке для вопросов и помощи с ДЗ</div>
         </div>
       </div>
 
@@ -715,6 +721,7 @@
           <div class="card-title">Гибкий график</div>
           <div class="card-desc">Подберем удобные окошки, чтобы учеба гармонично вписывалась в ваш ритм жизни.</div>
         </div>
+        <!-- Замененный текст про подход -->
         <div class="interactive-card">
           <div class="card-title">Индивидуальный подход к учебе</div>
           <div class="card-desc">Занимаемся под ваши цели и отслеживаем прогресс. Даже сложные темы становятся понятными и любимыми.</div>
@@ -722,7 +729,7 @@
       </div>
     </section>
 
-    <!-- 5. ОТЗЫВЫ -->
+    <!-- 5. ОТЗЫВЫ (Добавлено ещё 2 отзыва из присланных скриншотов) -->
     <section class="section-padding fade-in-section" style="background-color: var(--gray-bg);">
       <div class="section-header">
         <h2>Отзывы учеников</h2>
@@ -762,6 +769,7 @@
           <div class="review-content">«Именно пробный урок помог мне наконец то выбрать себе «наставника» и погрузиться в корейский! Никаких ограничений по уровню! Если вы покажите потенциал, то Дарья обязательно заметит.»</div>
         </div>
 
+        <!-- Дополнительные отзывы 5 и 6 -->
         <div class="review-card">
           <div class="review-header">
             <span class="review-name">Дана</span>
