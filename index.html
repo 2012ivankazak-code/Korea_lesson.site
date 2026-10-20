@@ -74,7 +74,7 @@
       100% { top: 110%; transform: translateX(120px) rotate(360deg); }
     }
 
-    /* СТРОГО ЦЕНТРИРОВАННЫЙ САЙТ */
+    /* ЦЕНТРИРОВАННЫЙ САЙТ */
     .site-wrapper {
       width: 100%;
       max-width: 1100px;
@@ -178,17 +178,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 15px 30px;
+      padding: 15px 25px;
       border-radius: 8px;
       font-weight: 600;
       font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       text-decoration: none;
       cursor: pointer;
       transition: all 0.3s ease;
       border: none;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
     }
 
     .btn-white {
@@ -209,6 +210,14 @@
     .btn-burgundy:hover {
       background-color: var(--burgundy-light);
       transform: translateY(-2px);
+    }
+
+    .btn-group-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 15px;
     }
 
     /* ОБЩИЕ СЕКЦИИ */
@@ -358,6 +367,10 @@
       border-radius: 14px;
       text-align: center;
       transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .stat-card:hover {
@@ -366,9 +379,17 @@
 
     .stat-number {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 700;
       color: var(--pink-tag);
+      line-height: 1.2;
+    }
+
+    .stat-text {
+      font-size: 13px;
+      color: var(--pink-soft);
+      margin-top: 6px;
+      line-height: 1.4;
     }
 
     /* БЛОК 5: ОТЗЫВЫ */
@@ -525,7 +546,7 @@
       padding: 35px 25px;
       border-radius: 20px;
       width: 90%;
-      max-width: 400px;
+      max-width: 440px;
       text-align: center;
       transform: translateY(20px);
       transition: transform 0.3s ease;
@@ -536,7 +557,7 @@
       transform: translateY(0);
     }
 
-    /* КОМПЬЮТЕРЫ И ПЛАНШЕТЫ (Двухколоночный Hero и Сетки) */
+    /* АДАПТАЦИЯ ДЛЯ КОМПЬЮТЕРОВ И ПЛАНШЕТОВ */
     @media (min-width: 768px) {
       .hero-container {
         flex-direction: row;
@@ -551,6 +572,10 @@
       .hero-subtitle {
         margin-left: 0;
         margin-right: 0;
+      }
+
+      .btn-group-row {
+        justify-content: flex-start;
       }
 
       .grid-3 {
@@ -590,14 +615,19 @@
       
       <div class="hero-container">
         <div class="hero-photo-box">
-          <img src="img/20260821_110017.jpg" alt="Дарья Калмыкова" class="hero-photo" onerror="this.src='https://via.placeholder.com/400x500/3B0B14/FFFFFF?text=Дарья+Калмыкова'">
+          <img src="20260821_110017.jpg" alt="Дарья Калмыкова" class="hero-photo" onerror="this.src='https://via.placeholder.com/400x500/3B0B14/FFFFFF?text=Дарья+Калмыкова'">
         </div>
 
         <div class="hero-text-content">
           <span class="hero-tag">Преподаватель корейского языка</span>
           <h1 class="hero-title">Дарья Калмыкова</h1>
           <p class="hero-subtitle">Индивидуальные и групповые занятия в легком, системном и увлеченном формате 🌸</p>
-          <button class="btn btn-white" onclick="openModal()">Записаться на занятие</button>
+          
+          <!-- Кнопки Telegram и ВКонтакте в одной строке -->
+          <div class="btn-group-row">
+            <a href="https://t.me/ddar_design" target="_blank" class="btn btn-white">Написать в Telegram</a>
+            <a href="https://vk.ru/ddar_design" target="_blank" class="btn btn-white">Написать ВКонтакте</a>
+          </div>
         </div>
       </div>
     </section>
@@ -619,19 +649,19 @@
 
         <div class="interactive-card dark">
           <span class="card-tag">Погружение</span>
-          <div class="card-title">Любителям K-Pop & Дорам</div>
-          <div class="card-desc">Разбор сленга, песен и реплик из сериалов. Поймете живой корейский язык и культурные тонкости.</div>
+          <div class="card-title">Язык для жизни</div>
+          <div class="card-desc">Подойдёт и любителям к-поп и дорам... Разбор сленга, песен и реплик из сериалов. Поймете живой корейский язык и тонкости культуры.</div>
         </div>
 
         <div class="interactive-card">
           <span class="card-tag">Экзамен</span>
-          <div class="card-title">Подготовка к TOPIK I</div>
-          <div class="card-desc">Систематизируем грамматику, наберем словарный запас и разберем все типовые задания.</div>
+          <div class="card-title">Подготовка к TOPIK I, II</div>
+          <div class="card-desc">Систематизируем грамматику, наберем словарный запас и отработаем все типовые задания тестов TOPIK 1 и TOPIK 2.</div>
         </div>
       </div>
     </section>
 
-    <!-- 3. ЧТО ВЫ ПОЛУЧИТЕ -->
+    <!-- 3. ЧТО ВЫ ПОЛУЧИТЕ ОТ ЗАНЯТИЙ -->
     <section class="section-padding fade-in-section" style="background-color: var(--pink-soft);">
       <div class="section-header">
         <h2>Что вы получите от занятий?</h2>
@@ -645,7 +675,7 @@
         </div>
         <div class="feature-box">
           <div class="feature-num">02</div>
-          <div class="feature-text">Удобная интерактивная онлайн-платформа</div>
+          <div class="feature-text">Современные и авторитетные учебные материалы</div>
         </div>
         <div class="feature-box">
           <div class="feature-num">03</div>
@@ -671,12 +701,12 @@
 
       <div class="grid-2" style="margin-bottom: 20px;">
         <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Понятно</div>
+          <div class="stat-number">Опыт & Стаж</div>
+          <div class="stat-text">Опыт работы переводчиком, педагогический стаж и постоянное развитие</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">24/7</div>
-          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">На связи</div>
+          <div class="stat-text" style="text-transform: uppercase; letter-spacing: 1px;">На связи между уроками</div>
         </div>
       </div>
 
@@ -686,8 +716,8 @@
           <div class="card-desc">Подберем удобные окошки, чтобы учеба гармонично вписывалась в ваш ритм жизни.</div>
         </div>
         <div class="interactive-card">
-          <div class="card-title">Мягкий и динамичный подход</div>
-          <div class="card-desc">Занятия проходят легко и увлекательно — даже сложная грамматика становится понятной без зубрежки.</div>
+          <div class="card-title">Индивидуальный подход к учебе</div>
+          <div class="card-desc">Занимаемся под ваши цели и отслеживаем прогресс. Даже сложные темы становятся понятными и любимыми.</div>
         </div>
       </div>
     </section>
@@ -721,7 +751,7 @@
             <span class="review-name">Мария Миягашева</span>
             <span class="review-stars">★★★★★</span>
           </div>
-          <div class="review-content">«Дарья развеяла волнение с первых минут своей добротой. А ТГ-канал со всякими корейскими штучками — вообще вау!»</div>
+          <div class="review-content">«Дарья развеяла волнение с первых минут своей добротой. На самом первом занятии было волнительно, но Даша всегда готова помочь. А ТГ-канал со всякими корейскими штучками — вообще вау!»</div>
         </div>
 
         <div class="review-card">
@@ -729,7 +759,23 @@
             <span class="review-name">Жанна</span>
             <span class="review-stars">★★★★★</span>
           </div>
-          <div class="review-content">«Именно пробный урок помог мне наконец то выбрать себе наставника и погрузиться в корейский!»</div>
+          <div class="review-content">«Именно пробный урок помог мне наконец то выбрать себе «наставника» и погрузиться в корейский! Никаких ограничений по уровню! Если вы покажите потенциал, то Дарья обязательно заметит.»</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-name">Дана</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-content">«Прекрасный репетитор!! Объясняет все доходчиво, если есть вопросы всегда можно написать и уточнить. Домашнее задание помогает отработать пройденную тему, если есть ошибки разбираем на уроке. Всем рекомендую🥰»</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-name">Твой психолог и коуч</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <div class="review-content">«Начала заниматься с Дашей. Очень понравился формат, подача материала. Даша на связи в переписке, гибкий график с окошками, подстраиваюсь под свой ритм. И корейский не вызывает сильного сопротивления!»</div>
         </div>
       </div>
     </section>
@@ -798,12 +844,12 @@
       </div>
 
       <div class="social-grid">
-        <a href="https://t.me/korean_with_ddarya" target="_blank" class="social-btn"> Telegram канал</a>
-        <a href="https://t.me/ddar_design" target="_blank" class="social-btn"> Написать в Telegram</a>
-        <a href="https://www.instagram.com/soft.korean_darya?vrfl=a3loOXkxeGozcG9n" target="_blank" class="social-btn"> Instagram</a>
-        <a href="https://vk.ru/club237294687" target="_blank" class="social-btn"> Группа ВКонтакте</a>
-        <a href="https://vk.ru/ddar_design" target="_blank" class="social-btn"> Написать ВКонтакте</a>
-        <a href="https://youtube.com/@ddar_design?si=_lRXyLhrLdrykPvh" target="_blank" class="social-btn"> YouTube канал</a>
+        <a href="https://t.me/korean_with_ddarya" target="_blank" class="social-btn">📱 Telegram канал</a>
+        <a href="https://t.me/ddar_design" target="_blank" class="social-btn">💬 Написать в Telegram</a>
+        <a href="https://www.instagram.com/soft.korean_darya?vrfl=a3loOXkxeGozcG9n" target="_blank" class="social-btn">📷 Instagram</a>
+        <a href="https://vk.ru/club237294687" target="_blank" class="social-btn">👥 Группа ВКонтакте</a>
+        <a href="https://vk.ru/ddar_design" target="_blank" class="social-btn">✉️ Написать ВКонтакте</a>
+        <a href="https://youtube.com/@ddar_design?si=_lRXyLhrLdrykPvh" target="_blank" class="social-btn">▶️ YouTube канал</a>
       </div>
     </section>
 
@@ -815,8 +861,10 @@
       <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--burgundy-dark); margin-bottom: 10px;">Записаться на занятие</h3>
       <p style="font-size: 13px; color: #666; margin-bottom: 25px;">Выберите удобный мессенджер для связи:</p>
 
-      <a href="https://t.me/ddar_design" target="_blank" class="btn btn-burgundy" style="width: 100%; margin-bottom: 12px;">Telegram</a>
-      <a href="https://vk.ru/ddar_design" target="_blank" class="btn" style="width: 100%; background-color: var(--gray-bg); color: #333;">ВКонтакте</a>
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <a href="https://t.me/ddar_design" target="_blank" class="btn btn-burgundy" style="flex: 1;">Telegram</a>
+        <a href="https://vk.ru/ddar_design" target="_blank" class="btn" style="flex: 1; background-color: var(--gray-bg); color: #333;">ВКонтакте</a>
+      </div>
 
       <button onclick="closeModal()" style="margin-top: 25px; background: none; border: none; color: #888; cursor: pointer; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Закрыть</button>
     </div>
