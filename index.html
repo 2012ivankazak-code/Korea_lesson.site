@@ -224,10 +224,49 @@
       transform: translateY(-2px);
     }
 
+    /* НАВИГАЦИЯ ПО БЛОКАМ */
+    .nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-link {
+      display: inline-block;
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--pink-soft);
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      background-color: var(--pink-tag);
+      color: var(--burgundy-dark);
+      border-color: var(--pink-tag);
+      transform: translateY(-2px);
+    }
+
     /* СЕКЦИИ И ИНТЕРАКТИВНОСТЬ */
     .section-padding {
       padding: 70px 40px;
       position: relative;
+    }
+
+    section[id] {
+      scroll-margin-top: 20px;
     }
 
     .section-header {
@@ -630,6 +669,10 @@
         justify-content: flex-start;
       }
 
+      .nav-menu {
+        justify-content: flex-start;
+      }
+
       .grid-3 {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -676,17 +719,27 @@
           <h1 class="hero-title">Дарья Калмыкова</h1>
           <p class="hero-subtitle">Индивидуальные и групповые занятия в легком, системном и увлеченном формате 🌸</p>
           
-          <!-- Перенесенные кнопки в одну строку наверх -->
+          <!-- Кнопки связи -->
           <div class="btn-group-row">
             <a href="https://t.me/ddar_design" target="_blank" class="btn btn-white">Написать в Telegram</a>
             <a href="https://vk.ru/ddar_design" target="_blank" class="btn btn-white">Написать ВКонтакте</a>
           </div>
+
+          <!-- НАВИГАЦИЯ ПО БЛОКАМ -->
+          <nav class="nav-menu" aria-label="Навигация по сайту">
+            <a href="#about" class="nav-link">Кому подойдёт</a>
+            <a href="#benefits" class="nav-link">Что получите</a>
+            <a href="#why" class="nav-link">Почему я</a>
+            <a href="#reviews" class="nav-link">Отзывы</a>
+            <a href="#price" class="nav-link">Прайс</a>
+            <a href="#contacts" class="nav-link">Контакты</a>
+          </nav>
         </div>
       </div>
     </section>
 
     <!-- 2. КОМУ ПОДОЙДУТ ЗАНЯТИЯ -->
-    <section class="section-padding fade-in-section">
+    <section class="section-padding fade-in-section" id="about">
       <div class="asian-watermark" style="top:20px; left:-30px;">배우다</div>
       <div class="section-header">
         <h2>Кому подойдут занятия?</h2>
@@ -715,7 +768,7 @@
     </section>
 
     <!-- 3. ЧТО ВЫ ПОЛУЧИТЕ ОТ ЗАНЯТИЙ -->
-    <section class="section-padding fade-in-section" style="background-color: var(--pink-soft);">
+    <section class="section-padding fade-in-section" id="benefits" style="background-color: var(--pink-soft);">
       <div class="section-header">
         <h2>Что вы получите от занятий?</h2>
         <p>Забота о вашем комфорте и продуктивности</p>
@@ -746,7 +799,7 @@
     </section>
 
     <!-- 4. ПОЧЕМУ ВЫБИРАЮТ МЕНЯ -->
-    <section class="section-padding fade-in-section">
+    <section class="section-padding fade-in-section" id="why">
       <div class="section-header">
         <h2>Почему выбирают меня?</h2>
         <p>Структурированная подача и гибкий подход</p>
@@ -776,7 +829,7 @@
     </section>
 
     <!-- 5. ОТЗЫВЫ -->
-    <section class="section-padding fade-in-section" style="background-color: var(--gray-bg);">
+    <section class="section-padding fade-in-section" id="reviews" style="background-color: var(--gray-bg);">
       <div class="section-header">
         <h2>Отзывы учеников</h2>
         <p>Честные впечатления моих студентов</p>
@@ -834,7 +887,7 @@
     </section>
 
     <!-- 6. ПРАЙС -->
-    <section class="section-padding fade-in-section">
+    <section class="section-padding fade-in-section" id="price">
       <div class="section-header">
         <h2>Прайс обучения</h2>
         <p>Разовые занятия и выгодные абонементы</p>
@@ -888,7 +941,7 @@
     </section>
 
     <!-- 7. КОНТАКТЫ -->
-    <section class="contacts-footer">
+    <section class="contacts-footer" id="contacts">
       <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 34px; margin-bottom: 20px;">Контакты & Соцсети</h2>
 
       <div style="background: rgba(255,255,255,0.08); padding: 20px; border-radius: 12px; max-width: 420px; margin: 0 auto 30px; border: 1px dashed var(--pink-tag);">
